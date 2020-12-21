@@ -1,0 +1,7 @@
+v1/config/*
+!v1/config/foo_config.txt
+v1/__pycache__
+
+venv/*
+
+.idea/*
