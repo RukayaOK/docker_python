@@ -1,23 +1,13 @@
-FROM centos:latest
-LABEL rukaya@test.com
-ENV ENV_VAR="development"
+FROM python:3.7
+LABEL maintainer="Rukaya Ogazi-Khan, rukaya@test.com"
+ENV ENV_VAR=development
 ENV PORT 5000
+ARG VERSION=1.1
 ARG SRC_DIR=/src/usr/app
 
-RUN yum update -y && \
-	yum install -y python3 && \
-	yum -y install python-setuptools && \
-	yum install -y git
-
-RUN mkdir -p $SRC_DIR && \
-	cd $SRC_DIR && \
-	git clone https://github.com/RukayaOK/docker.git &&\
-	python3 -m venv docker/venv && \
-	cd docker && \
-	source venv/bin/activate && \
-	pip3 install -r requirements.txt && \
-	deactivate
-
+WORKDIR $SRC_DIR
+COPY . .
+RUN pip3 install -r requirements.txt
 EXPOSE $PORT
 
-ENTRYPOINT /usr/src/app/docker/venv/bin/gunicorn -w 3 --bind 0.0.0.0:5000 run:app
+ENTRYPOINT gunicorn v1.run:app -w 3 -b 0.0.0.0:$PORT

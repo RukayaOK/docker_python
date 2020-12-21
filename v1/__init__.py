@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 import os
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -11,3 +10,4 @@ def index():
 def environment():
     environment = os.environ['ENV_VAR']
     return render_template('environment.html', environment = environment)
+

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  python-app:
+    build:
+      context: .
+      args:
+        - VERSION=v2.0
+    ports:
+      - 8080:5000
+    environment:
+      - ENV_VAR=${ENVIRONMENT}
+    env_file: .env
