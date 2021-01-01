@@ -3,7 +3,7 @@ pipeline {
 	agent any
 
 	environment {
-		PYTHONPATH = "${WORKSPACE}"
+		PYTHONPATH = ${WORKSPACE}
 		PATH = ${WORKSPACE}/venv/bin:${HOME}/.local/bin:${PATH}
 	}
 
