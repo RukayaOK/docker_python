@@ -4,6 +4,7 @@ pipeline {
 
 	environment {
 		PYTHONPATH = "${WORKSPACE}"
+		PATH = "$PATH:/usr/local/bin/docker-compose"
 	}
 
 	stages {
