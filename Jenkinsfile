@@ -8,24 +8,15 @@ pipeline {
 
 	stages {
 
-        	stage('build') {
+        	stage('Unit Tests') {
         		steps {
-            			withEnv(["HOME=${env.WORKSPACE}"]) {
-            								sh script:'''
-									    #/bin/bash
-									    echo "PATH is: $PATH"
-									      python3 --version
-									      ls
-									      export PATH="$WORKSPACE/.local/bin:$PATH"
-                               						 '''
-			    }
-			}
+            			runUnittests()
+			     }
 		    }
 
 		stage('Build') {
 			steps {
-<<<<<<< HEAD
-			    runUnittests()
+			    
 
 				echo 'Building..'
 			}
@@ -48,6 +39,7 @@ pipeline {
 
 
 def runUnittests() {
-    sh "pip3 install --user -r requirements.txt"
+    sh "pip3 install --user --no-cache-dir -r requirements.txt"
+    sh "python3 ./v1/tests/unit_test.py"
 }
 
