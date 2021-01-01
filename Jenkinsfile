@@ -4,7 +4,7 @@ pipeline {
 
 	environment {
 		PYTHONPATH = "${WORKSPACE}"
-        PATH = "$PATH:/usr/local/bin/docker-compose"
+		PATH = "$PATH:/usr/local/bin"
 	}
 
 	stages {
@@ -12,7 +12,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 echo 'Running Unit Tests...'
-                runUnittests()
+                runUnitTests()
              }
         }
 
@@ -33,6 +33,7 @@ pipeline {
 		stage('UAT Test') {
 			steps {
 				echo 'Running UAT Tests...'
+				runUATTests()
 			}
 		}
 
