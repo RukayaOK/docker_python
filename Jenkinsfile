@@ -4,7 +4,6 @@ pipeline {
 
 	environment {
 		PYTHONPATH = ${WORKSPACE}
-		PATH = ${WORKSPACE}/venv/bin:${HOME}/.local/bin:${PATH}
 	}
 
 	stages {
