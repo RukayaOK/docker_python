@@ -8,7 +8,7 @@ pipeline {
 
 	stages {
 
-        	stage('Unit Test {
+        	stage('Unit Tests') {
         		steps {
             			runUnittests()'
 			     }
