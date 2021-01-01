@@ -36,8 +36,10 @@ pipeline {
 
 
 def runUnittests() {
-    sh python3 -m venv venv
-    sh source venv/bin/activate
+    sh "python3 -m venv venv"
+    sh "source ./venv/bin/activate"
 	sh "pip3 install --no-cache-dir -r ./requirements.txt"
 	sh "python3 ./v1/tests/unit_test.py"
+	sh "deactivate"
+    sh "rm -r venv/""
 }

@@ -10,7 +10,7 @@ class BasicTests(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_hello(self):
+    def test_index(self):
         response = self.app.get('/', follow_redirects=True)
         self.assertEqual(response.status, '200 OK')
 
