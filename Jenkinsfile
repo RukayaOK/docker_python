@@ -55,5 +55,5 @@ def deployApp() {
 }
 
 def runUATTests() {
-	sh "./v1/tests/uat_test.sh 8081"
+	sh "sh ./v1/tests/uat_test.sh 8081"
 }
