@@ -10,14 +10,7 @@ pipeline {
 
         	stage('build') {
         		steps {
-            			withEnv(["HOME=${env.WORKSPACE}"]) {
-            								sh script:'''
-									    #/bin/bash
-									    echo "PATH is: $PATH"
-									      python3 --version
-									      ls
-									      export PATH="$WORKSPACE/.local/bin:$PATH"
-                               						 '''
+            			echo 'build..'
 			    }
 			}
 		    }
