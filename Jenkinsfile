@@ -9,9 +9,21 @@ pipeline {
 
 	stages {
 
-        stage("Test - Unit tests") {
-			steps { runUnittests() }
-		}
+        	stage('build') {
+        		steps {
+            			withEnv(["HOME=${env.WORKSPACE}"]) {
+            								sh script:'''
+									    #/bin/bash
+									    echo "PATH is: $PATH"
+									      python3 --version
+									      python3 -m pip3 install --upgrade pip --user
+									      ls
+									      pip3 install --user -r requirements.txt
+									      export PATH="$WORKSPACE/.local/bin:$PATH"
+                               						 '''
+			    }
+			}
+		    }
 
 		stage('Build') {
 			steps {
