@@ -10,15 +10,15 @@ pipeline {
 
         	stage('Unit Tests') {
         		steps {
+            			echo 'Running Unit Tests'
             			runUnittests()
 			     }
 		    }
 
 		stage('Build') {
 			steps {
-			    
-
 				echo 'Building..'
+				buildApp()
 			}
 		}
 
@@ -43,3 +43,6 @@ def runUnittests() {
     sh "python3 ./v1/tests/unit_test.py"
 }
 
+def buildApp() {
+	sh "docker-compose build --no-cache --force-rm"
+}

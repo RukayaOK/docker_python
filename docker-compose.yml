@@ -1,6 +1,8 @@
 version: '3'
 services:
-  python-app:
+  docker_flask_app:
+    image: docker_flask_app/v1
+    container_name: docker_flask_container
     build:
       context: .
       args:
