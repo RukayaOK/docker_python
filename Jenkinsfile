@@ -24,7 +24,6 @@ pipeline {
 
 		stage('Build') {
 			steps {
-<<<<<<< HEAD
 			    runUnittests()
 
 				echo 'Building..'
