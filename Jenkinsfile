@@ -3,7 +3,7 @@ pipeline {
 	agent any
 
 	environment {
-		PYTHONPATH = ${WORKSPACE}
+		PYTHONPATH = "${WORKSPACE}"
 	}
 
 	stages {
