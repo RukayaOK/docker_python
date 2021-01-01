@@ -25,13 +25,14 @@ pipeline {
         stage('Deploy') {
 			steps {
 				echo 'Deploying...'
-				//deployApp()
+				deployApp()
 			}
 		}
 
 		stage('UAT Test') {
 			steps {
 				echo 'Running UAT Tests...'
+				runUATTests()
 			}
 		}
 
