@@ -40,5 +40,5 @@ pipeline {
 
 def runUnittests() {
     sh "pip3 install --user --no-cache-dir -r requirements.txt"
-    sh "python3 ./v1/unit_test.py"
+    sh "python3 ./v1/tests/unit_test.py"
 }
