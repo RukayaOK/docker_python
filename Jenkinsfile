@@ -11,7 +11,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 echo 'Running Unit Tests...'
-                runUnittests()
+                runUnitTests()
              }
         }
 
