@@ -52,5 +52,5 @@ def runUnittests() {
 	sh "pip3 install --no-cache-dir -r ./requirements.txt"
 	sh "python3 ./v1/tests/unit_test.py"
 	sh "deactivate"
-    sh "rm -r venv/""
+    sh "rm -r venv/"
 }
