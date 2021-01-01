@@ -4,6 +4,7 @@ pipeline {
 
 	environment {
 		PYTHONPATH = "${WORKSPACE}"
+        PATH = "$PATH:/usr/local/bin/docker-compose"
 	}
 
 	stages {
@@ -53,5 +54,6 @@ def deployApp() {
 }
 
 def runUATTests() {
+    sh "chmod u+x uat_test.sh"
 	sh "./v1/tests/uat_test.sh 8081"
 }
