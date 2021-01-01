@@ -8,16 +8,15 @@ pipeline {
 
 	stages {
 
-        	stage('build') {
+        	stage('Unit Test {
         		steps {
-            			echo 'build..'
-			  
-			}
+            			runUnittests()'
+			     }
 		    }
 
 		stage('Build') {
 			steps {
-			    runUnittests()
+			    
 
 				echo 'Building..'
 			}
@@ -40,5 +39,6 @@ pipeline {
 
 
 def runUnittests() {
-    sh "pip3 install --user -r requirements.txt"
+    sh "pip3 install --user --no-cache-dir -r requirements.txt"
+    sh "python3 ./v1/unit_test.py"
 }
